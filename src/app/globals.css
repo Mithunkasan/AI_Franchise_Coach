@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes goldBlink {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
+  }
+  50% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 4px rgba(245, 230, 161, 0.6));
+  }
+}
+
+.animate-goldBlink {
+  animation: goldBlink 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(245, 230, 161, 1));
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.6));
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradientShift {
+  animation: gradientShift 3s ease infinite;
+}
+
+.animate-pulseGlow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+@keyframes fadeUpSlow {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeUpSlow {
+  animation: fadeUpSlow 1s ease-out forwards;
+}
+
+/* Gold Shine Effect */
+@keyframes shineSlow {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+.animate-shineSlow {
+  animation: shineSlow 2.5s linear infinite;
+  background-size: 200% auto;
+}
+
+/* Soft Fade Delay */
+@keyframes fadeInDelay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animate-fadeInDelay {
+  animation: fadeInDelay 1.6s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.animate-pulseGlow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* Stronger metallic shine */
+@keyframes shimmer-bright {
+  0% { background-position: -200% 0; filter: brightness(1); }
+  50% { background-position: 200% 0; filter: brightness(1.4); }
+  100% { background-position: -200% 0; filter: brightness(1); }
+}
+
+.animate-shimmer-bright {
+  background-size: 250% auto;
+  animation: shimmer-bright 3s linear infinite;
+}
+
+/* Optional: soft outer gold glow */
+.bright-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,230,150,0.45), transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.label {
+  @apply block text-sm font-semibold text-yellow-300 mb-1;
+}
+
+.input {
+  @apply w-full p-3 rounded-xl bg-black border border-yellow-500/30 text-white
+         focus:border-yellow-400 outline-none transition placeholder-gray-400;
+}
+
+.btn-primary {
+  @apply w-full bg-gradient-to-r from-yellow-500 to-yellow-400
+         text-black font-bold py-3 rounded-xl shadow-lg shadow-yellow-500/20
+         hover:from-yellow-400 hover:to-yellow-300 transition;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease-out;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease-out forwards;
+}

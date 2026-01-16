@@ -1,0 +1,25 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+model Submission {
+  id             Int      @id @default(autoincrement())
+  fullName       String
+  whatsapp       String?
+  city           String?
+  businessName   String?
+  category       String?
+  revenue        String?
+  yearsInBusiness String?
+  outlets        String?
+  systemised     String?
+  replicable     String?
+  startTime      String?
+  createdAt      DateTime @default(now())
+}
